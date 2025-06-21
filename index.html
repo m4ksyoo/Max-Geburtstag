@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉🎂 ALLES GUTE ZUM 30. GEBURTSTAG!!! 🥳🎈</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Allgemeine Stile für den Body */
+        body {
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Verhindert Scrollbalken durch Animationen */
+            background: linear-gradient(45deg, #ff7e5f, #feb47b, #ffec3c, #8fffb0, #6aafff); /* Farbenfroher Verlauf */
+            background-size: 400% 400%; /* Für die Hintergrundanimation */
+            animation: backgroundGradient 15s ease infinite; /* Animation des Hintergrunds */
+            color: #fff; /* Weiße Schrift für Kontrast */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Mindesthöhe des Viewports */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Schatten für bessere Lesbarkeit */
+        }
+
+        /* Hintergrundverlauf-Animation */
+        @keyframes backgroundGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Stil für den Hauptcontainer */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95); /* Leicht transparenter, heller Hintergrund */
+            padding: 40px 60px;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 0 0 10px #ffd700; /* Schatten und Goldrand */
+            position: relative;
+            z-index: 10; /* Stellt sicher, dass der Container über anderen Elementen liegt */
+            margin: 30px;
+            max-width: 95%; /* Flexibel für mobile Ansicht */
+            border: 5px solid #ff4500; /* Knalliger Außenrand */
+            transform: scale(1); /* Startgröße */
+            animation: bounceIn 1s ease-out; /* Animation beim Laden */
+            color: #333; /* Textfarbe im Container */
+        }
+
+        /* Animation für das Reinspringen des Containers */
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+
+        /* Stil für die Hauptüberschrift */
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ff1493; /* Tiefes Pink */
+            font-size: 4em;
+            margin-bottom: 5px; /* Kleinerer Abstand nach unten */
+            animation: pulse 1.5s infinite alternate, fadeInDown 2s ease-out; /* Pulsieren und Reinfallen */
+            text-shadow: 4px 4px 6px rgba(0,0,0,0.3);
+            letter-spacing: 3px;
+        }
+
+        /* Stil für die Unterüberschrift/Grußbotschaft */
+        .subtitle-message {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2em;
+            color: #6a6a6a;
+            margin-top: 0;
+            margin-bottom: 20px; /* Abstand zur nächsten Zeile */
+            animation: fadeIn 1.5s ease-out forwards;
+            animation-delay: 0.7s;
+            opacity: 0; /* Startet unsichtbar */
+        }
+
+        /* Animation für das Einblenden der Unterüberschrift */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Stil für allgemeine Absätze */
+        p {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.4em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #4a4a4a;
+            animation: fadeInUp 2s ease-out forwards; /* Von unten hereinfahren */
+            animation-delay: 0.5s;
+            opacity: 0; /* Startet unsichtbar */
+        }
+
+        /* Stil für den Video-Container */
+        .video-container {
+            margin-top: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            position: relative;
+            cursor: pointer; /* Zeigt an, dass der Bereich klickbar ist */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            border: 5px solid #00ffff; /* Knalliger Rand um das Video */
+            max-width: 600px; /* Maximale Breite auf größeren Bildschirmen */
+            margin-left: auto; /* Zentrierung auf größeren Bildschirmen */
+            margin-right: auto;
+            aspect-ratio: 16 / 9; /* Behält das 16:9-Format bei */
+        }
+
+        /* Stil für das Video-Vorschaubild */
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Schneidet das Bild bei Bedarf zu */
+            display: block;
+            filter: brightness(0.8) saturate(1.2); /* Leichte Filter für den Look */
+            transition: filter 0.3s ease; /* Übergang beim Hover */
+        }
+
+        .video-container:hover .video-placeholder {
+            filter: brightness(1) saturate(1.5); /* Heller und farbenfroher beim Hover */
+        }
+
+        /* Stil für das Video-Element selbst */
+        video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            display: none; /* Video ist anfangs versteckt */
+        }
+
+        /* Konfetti-Animation mit Emojis */
+        .confetti {
+            position: absolute;
+            font-size: 50px; /* Große Emojis! */
+            opacity: 0;
+            animation: fall 8s linear infinite; /* Längere Fallzeit */
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(0.8);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Sterne im Hintergrund */
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 4s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Luftballons im Hintergrund */
+        .balloon {
+            position: absolute;
+            width: 80px;
+            height: 95px;
+            background-color: #ff6347; /* Rot */
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            bottom: -150px; /* Start unterhalb des Bildschirms */
+            animation: floatUp 20s linear infinite;
+            z-index: 5;
+            box-shadow: inset -10px -10px 0 rgba(0,0,0,0.2);
+        }
+
+        .balloon::before { /* Schnur der Ballons */
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 50px;
+            background-color: rgba(0,0,0,0.5);
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -50px;
+            border-radius: 0 0 50% 50%;
+        }
+
+        /* Unterschiedliche Farben und Animation-Delays für die Ballons */
+        .balloon:nth-child(2) { background-color: #ff1493; animation-delay: 2s; transform: scale(0.9); }
+        .balloon:nth-child(3) { background-color: #00bfff; animation-delay: 4s; transform: scale(1.1); }
+        .balloon:nth-child(4) { background-color: #ffd700; animation-delay: 6s; transform: scale(0.8); }
+        .balloon:nth-child(5) { background-color: #00fa9a; animation-delay: 8s; transform: scale(1.05); }
+
+        /* Animation für das Aufsteigen der Ballons */
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- Responsive Anpassungen für mobile Ansicht (bis 768px Breite) --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 30px;
+                margin: 10px;
+                border-radius: 15px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+            }
+
+            h1 {
+                font-size: 2.5em;
+                letter-spacing: 1px;
+            }
+
+            .subtitle-message {
+                font-size: 0.9em;
+                margin-bottom: 15px;
+            }
+
+            p {
+                font-size: 1em;
+                margin-bottom: 20px;
+            }
+
+            .video-container {
+                width: 90%; /* Füllt 90% der Breite des Containers aus */
+                max-width: none; /* Deaktiviert die Desktop-Max-Breite */
+                margin-top: 25px;
+                border-width: 3px;
+            }
+
+            .confetti {
+                font-size: 30px;
+            }
+
+            .star {
+                width: 2px;
+                height: 2px;
+            }
+
+            .balloon {
+                width: 60px;
+                height: 70px;
+            }
+        }
+
+        /* Responsive Anpassungen für sehr kleine Bildschirme (bis 480px Breite) */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+            .subtitle-message {
+                font-size: 0.8em;
+            }
+            p {
+                font-size: 0.9em;
+            }
+            .confetti {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="star" style="width: 3px; height: 3px; top: 10%; left: 20%;"></div>
+    <div class="star" style="width: 4px; height: 4px; top: 30%; left: 80%;"></div>
+    <div class="star" style="width: 2px; height: 2px; top: 50%; left: 10%;"></div>
+    <div class="star" style="width: 5px; height: 5px; top: 70%; left: 40%;"></div>
+    <div class="star" style="width: 3px; height: 3px; top: 20%; left: 60%;"></div>
+    <div class="star" style="width: 4px; height: 4px; top: 85%; left: 15%;"></div>
+    <div class="star" style="width: 2px; height: 2px; top: 5%; left: 90%;"></div>
+    <div class="star" style="width: 5px; height: 5px; top: 40%; left: 5%;"></div>
+    <div class="star" style="width: 3px; height: 3px; top: 60%; left: 70%;"></div>
+    <div class="star" style="width: 4px; height: 4px; top: 95%; left: 50%;"></div>
+
+    <div class="balloon" style="left: 10%;"></div>
+    <div class="balloon" style="left: 30%;"></div>
+    <div class="balloon" style="left: 50%;"></div>
+    <div class="balloon" style="left: 70%;"></div>
+    <div class="balloon" style="left: 90%;"></div>
+
+    <div class="container">
+        <h1 class="pulsating-text">🎉 Herzlichen Glückwunsch zum 30. Geburtstag! 🥳</h1>
+        <p class="subtitle-message">Hier noch eine Grußbotschaft an dich!</p>
+        <p>Ein dreifaches Hoch auf dich und die nächsten aufregenden Jahre! ✨ Lass uns feiern! 🥂</p>
+        <p>Wir haben ein kleines Geschenk für dich vorbereitet: 👇</p>
+
+        <div class="video-container" id="videoContainer">
+            <img src="thumbnail.avif" alt="Video Vorschau" class="video-placeholder" id="videoPlaceholder">
+
+            <video id="geburtstagsVideo" controls loop>
+                <source src="video_gb.mp4" type="video/mp4">
+                Dein Browser unterstützt das Video-Tag nicht.
+            </video>
+        </div>
+        <p style="margin-top: 30px;">Viel Spaß beim Anschauen! 😊🎁</p>
+    </div>
+
+    <script>
+        // Array von Emojis für das Konfetti
+        const emojis = ['🎂', '🥳', '🎈', '🎁', '🎉', '🌟', '💖', '✨', '🤩', '🌈', '🎊', '🍰'];
+
+        /**
+         * Erstellt und animiert ein Konfetti-Emoji.
+         */
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + 'vw'; /* Zufällige horizontale Position */
+            confetti.style.animationDuration = Math.random() * 3 + 4 + 's'; /* Zufällige Fallzeit (4-7s) */
+            confetti.style.animationDelay = Math.random() * 3 + 's'; /* Zufällige Verzögerung */
+            confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)]; /* Zufälliges Emoji */
+            document.body.appendChild(confetti);
+
+            // Entfernt das Konfetti-Element, sobald die Animation beendet ist, um den DOM sauber zu halten
+            confetti.addEventListener('animationend', () => {
+                confetti.remove();
+            });
+        }
+
+        // Erzeugt kontinuierlich Konfetti-Elemente
+        setInterval(createConfetti, 50); // Erzeugt alle 50ms ein neues Konfetti
+        // Erzeugt beim Laden der Seite initial viele Konfetti-Elemente
+        for (let i = 0; i < 100; i++) {
+            createConfetti();
+        }
+
+        // --- Video-Logik mit Platzhalter und Vollbildmodus-Aktivierung ---
+        const videoContainer = document.getElementById('videoContainer');
+        const videoPlaceholder = document.getElementById('videoPlaceholder');
+        const geburtstagsVideo = document.getElementById('geburtstagsVideo');
+
+        // Event-Listener für den Klick auf den Video-Container
+        videoContainer.addEventListener('click', () => {
+            videoPlaceholder.style.display = 'none'; // Vorschaubild ausblenden
+            geburtstagsVideo.style.display = 'block'; // Video anzeigen
+            geburtstagsVideo.play(); // Video abspielen
+
+            // Versucht, das Video in den Vollbildmodus zu schalten (mit Browser-Präfixen für Kompatibilität)
+            if (geburtstagsVideo.requestFullscreen) {
+                geburtstagsVideo.requestFullscreen();
+            } else if (geburtstagsVideo.mozRequestFullScreen) { /* Firefox */
+                geburtstagsVideo.mozRequestFullScreen();
+            } else if (geburtstagsVideo.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                geburtstagsVideo.webkitRequestFullscreen();
+            } else if (geburtstagsVideo.msRequestFullscreen) { /* IE/Edge */
+                geburtstagsVideo.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
